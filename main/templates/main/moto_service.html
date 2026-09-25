@@ -1,0 +1,113 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+  Мотосервис
+{% endblock %}
+
+{% block content %}
+  <!-- Блок для фото на всю ширину экрана -->
+  <section class="salon-image-section">
+    <img src="{% static 'main/images/salon.jpg' %}" alt="Наш мотосалон" class="full-width-image" />
+  </section>
+
+  <section class="service-prices container">
+    <div class="price-list-wrapper">
+      <h2>Прайс-лист</h2>
+      
+      <!-- Горизонтальные вкладки -->
+      <div class="service-tabs">
+        <button class="service-tab is-active" data-target="to">ТО</button>
+        <button class="service-tab" data-target="repair">Ремонт</button>
+        <button class="service-tab" data-target="tuning">Доп. услуги</button>
+      </div>
+
+      <!-- Контент: ТО (показывается изначально) -->
+      <div class="service-content is-visible" id="to">
+        <ul class="service-list">
+          <li class="service-item">
+            <span class="service-name">Чистка смазка цепи</span>
+            <span class="service-price">8 000 ₸</span>
+          </li>
+          <li class="service-item">
+            <span class="service-name">Замена масла</span>
+            <span class="service-price">5 000 ₸</span>
+          </li>
+          <li class="service-item">
+            <span class="service-name">Замена колодок</span>
+            <span class="service-price">2 000 ₸</span>
+          </li>
+          <li class="service-item">
+            <span class="service-name">Замена/чистка воздушного фильтра</span>
+            <span class="service-price">от 10 000 ₸</span>
+          </li>
+          <li class="service-item">
+            <span class="service-name">Замена тормозной жидкости</span>
+            <span class="service-price">от 2 500 ₸</span>
+          </li>
+          <li class="service-item">
+            <span class="service-name">Замена охлаждающей жидкости</span>
+            <span class="service-price">от 5 000 ₸</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Контент: Ремонт (скрыт по умолчанию) -->
+      <div class="service-content" id="repair" hidden>
+        <ul class="service-list">
+          <li class="service-item">
+            <span class="service-name">Диагностика двигателя</span>
+            <span class="service-price">от 15 000 ₸</span>
+          </li>
+          <li class="service-item">
+            <span class="service-name">Ремонт ходовой части</span>
+            <span class="service-price">от 20 000 ₸</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Контент: Доп. услуги (скрыт по умолчанию) -->
+      <div class="service-content" id="tuning" hidden>
+        <ul class="service-list">
+          <li class="service-item">
+            <span class="service-name">Установка защитных дуг</span>
+            <span class="service-price">от 12 000 ₸</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="disclaimer">Цены предоставлены владельцем фирмы и не являются публичной офертой</p>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.service-tab');
+      const contents = document.querySelectorAll('.service-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Убираем активность со всех вкладок
+          tabs.forEach(t => t.classList.remove('is-active'));
+          // Скрываем весь контент
+          contents.forEach(c => {
+            c.classList.remove('is-visible');
+            c.hidden = true;
+          });
+
+          // Активируем нажатую вкладку
+          tab.classList.add('is-active');
+          // Показываем связанный контент
+          const targetId = tab.getAttribute('data-target');
+          const targetContent = document.getElementById(targetId);
+          if (targetContent) {
+            targetContent.hidden = false;
+            targetContent.classList.add('is-visible');
+          }
+        });
+      });
+    });
+  </script>
+{% endblock %}

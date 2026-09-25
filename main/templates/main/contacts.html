@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+  Мотосервис
+{% endblock %}
+
+{% block content %}
+  <main class="container contacts-page">
+    <h1 class="contact-title">Контакты</h1>
+
+    <div class="contact-wrapper">
+      <div class="article-content">
+        <p>Республика Казахстан, 050013 / A15T0F2</p>
+        <p>РК, г. Алматы, ул. Жанару, 55а</p>
+
+        <p>
+          <strong>Время работы</strong>
+        </p>
+        <p>Пн-Пт: 10:00 – 18:00</p>
+
+        <p>
+          <strong>Контакты мотосалона</strong>
+        </p>
+        <p>+7 (705) 906-77-42</p>
+
+        <p>
+          <strong>Контакты сервиса</strong>
+        </p>
+        <p>+7 707 183 07 21</p>
+        
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A259a77d86053d4c84ce385a2de5df460c432e884591c8f067a12f6529d7458fb&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+    </div>
+  </main>
+{% endblock %}

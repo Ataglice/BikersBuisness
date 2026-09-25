@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}" />
+    <title>
+      {% block title %}
+        Visitka
+      {% endblock %}
+    </title>
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row header-row">
+        <div class="header-main">
+          <div class="logo">
+            <a href="/" title="Motorcycle Company">
+              <svg class="motorcycle-logo" role="img" aria-label="Motorcycle Company logo" viewBox="0 0 150 56">
+                <image href="{% static 'main/images/vec_1.svg' %}" width="150" height="56" preserveAspectRatio="xMidYMid meet"></image>
+              </svg>
+            </a>
+          </div>
+
+          <nav class="site-navigation" aria-label="Main navigation">
+            <ul class="main-menu">
+              <li>
+                <a href="{% url 'delivery' %}">Доставка</a>
+              </li>
+              <li>
+                <a href="{% url 'moto_service' %}">МотоСервис</a>
+              </li>
+              <li>
+                <a href="{% url 'contacts' %}">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="header-tools">
+          <ul class="header-social-media">
+            <li>
+              <a href="https://www.instagram.com/spmoto_kz/" aria-label="Instagram">
+                <!-- Код SVG Instagram -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://go.2gis.com/yUNWr" aria-label="2GIS">
+                <!-- Код SVG 2GIS (Пример геометки) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+
+          <div class="head-contact">
+            <button class="btn-callback">Заказать звонок</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Основной контент будет вставляться сюда -->
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Блок "Компания" -->
+        <div class="footer-column">
+          <h3><a href="/company/">Компания</a></h3>
+          <ul>
+            <li>
+              <a href="/company/">О компании</a>
+            </li>
+            <li>
+              <a href="/company/history/">История компании</a>
+            </li>
+            <li>
+              <a href="/company/licenses/">Лицензии</a>
+            </li>
+            <li>
+              <a href="/company/reviews/">Отзывы</a>
+            </li>
+            <li>
+              <a href="/company/info/">Информация для партнеров</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Блок "Как купить" -->
+        <div class="footer-column">
+          <h3><a href="/help/">Как купить</a></h3>
+          <ul>
+            <li>
+              <a href="/help/payment/">Условия оплаты</a>
+            </li>
+            <li>
+              <a href="/help/delivery/">Условия доставки</a>
+            </li>
+            <li>
+              <a href="/help/warranty/">Гарантия на товар</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Блок "Мотоуслуги" -->
+        <div class="footer-column">
+          <h3><a href="/services/">Мотоуслуги</a></h3>
+          <ul>
+            <li>
+              <a href="/podbor/">Подбор запчастей</a>
+            </li>
+            <li>
+              <a href="/z/projects/">Мотожизнь</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Блок "Контакты" -->
+        <div class="footer-column">
+          <h3>Наши контакты</h3>
+          <address>
+            <ul>
+              <li>
+                <a href="tel:+77770208123">+7 705 906 77 42</a>
+              </li>
+              
+              <li>РК, г. Алматы, ул. Жанару, 55а</li>
+            </ul>
+          </address>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Место для скриптов конкретных страниц -->
+    {% block scripts %}
+
+    {% endblock %}
+
+    <!-- Модальное окно "Заказать звонок" -->
+    <div id="callbackModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Заказать звонок</h2>
+
+        <form action="/submit-callback/" method="POST" class="callback-form">
+          <!-- В Django обязателен CSRF токен для POST запросов -->
+          {% csrf_token %}
+
+          <input type="text" name="fullname" placeholder="Ваше ФИО" required />
+          <input type="tel" name="phone" placeholder="Номер телефона" required />
+
+          <!-- Заглушка под капчу (Для реальной капчи нужно подключать Google reCAPTCHA или Яндекс SmartCaptcha) -->
+          <div class="captcha-box">
+            <input type="checkbox" id="captcha-check" required />
+            <label for="captcha-check">Я не робот</label>
+          </div>
+
+          <div class="consent-box">
+            <input type="checkbox" id="consent-check" required checked />
+            <label for="consent-check">Я согласен на <a href="/privacy/" target="_blank">обработку персональных данных</a></label>
+          </div>
+
+          <button type="submit" class="button form-button">Отправить</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('callbackModal')
+        const openBtn = document.querySelector('.btn-callback')
+        const closeBtn = document.querySelector('.modal-close')
+      
+        if (!modal || !openBtn || !closeBtn) return
+      
+        openBtn.addEventListener('click', (e) => {
+          e.preventDefault()
+          modal.classList.add('is-active')
+        })
+      
+        closeBtn.addEventListener('click', () => {
+          modal.classList.remove('is-active')
+        })
+      
+        window.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('is-active')
+          }
+        })
+      
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+            modal.classList.remove('is-active')
+          }
+        })
+      })
+    </script>
+  </body>
+</html>

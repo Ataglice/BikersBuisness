@@ -1,0 +1,155 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+  Главная — Visitka
+{% endblock %}
+
+{% block content %}
+  <section class="hero-banner">
+    <div class="hero-container container">
+      <div class="hero-content">
+        <h1 class="hero-title">Премиальный сервис для вашей техники</h1>
+        <p class="hero-subtitle">Надежная доставка и индивидуальный подбор запчастей</p>
+        <a href="#about" class="button hero-button">Подробнее</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-content container">
+    <aside class="content-sidebar" aria-label="Information sections">
+      <p class="sidebar-label">Исследуйте</p>
+      <nav class="content-tabs" aria-label="Choose information">
+        <button class="content-tab is-active" type="button" data-content="about" aria-selected="true">О нас</button>
+        <button class="content-tab" type="button" data-content="services" aria-selected="false">Сервис</button>
+        <button class="content-tab" type="button" data-content="values" aria-selected="false">Наши ценности</button>
+        <button class="content-tab" type="button" data-content="contact" aria-selected="false">Контакты</button>
+      </nav>
+    </aside>
+
+    <section class="content-panel" aria-live="polite">
+      <article class="content-section is-visible" data-section="about">
+        <p class="section-kicker">Сервисный центр</p>
+        <h2>Будь уверен в своей технике</h2>
+        <p class="text_1">Осуществляем доставку техники в Алматы. Проводим индивидуальный подбор оригинальных запчастей и выполняем комплексное техническое обслуживание.</p>
+      </article>
+
+      <article class="content-section" data-section="services" hidden>
+        <p class="section-kicker">Что мы делаем</p>
+        <h2>Доставим. Обслужим</h2>
+        <p>От доставки нужной техники до регулярного ТО и поиска запчастей — с нами вы всегда будете уверены в своем транспорте.</p>
+      </article>
+
+      <article class="content-section" data-section="values" hidden>
+        <p class="section-kicker">Наш подход</p>
+        <h2>Профессионализм на деле</h2>
+        <p>Мы ценим честный диалог, даем проверенные рекомендации и обеспечиваем прозрачный сервис для каждого клиента.</p>
+      </article>
+
+      <article class="content-section" data-section="contact" hidden>
+        <p class="section-kicker">Свяжитесь с нами</p>
+        <h2>Контакты</h2>
+        <p>
+          Алматы, пр. Гагарина, 232<br /><a href="tel:+77770208123">+7 777 020 81 23</a><br /><a href="mailto:freeriderkz2005@gmail.com">freeriderkz2005@gmail.com</a>
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <section class="technique-types container">
+    <h2 class="section-title">Работаем с любой техникой</h2>
+    <div class="technique-grid">
+      <div class="technique-card">
+        <h3>Мотоциклы</h3>
+        <p>Спортбайки, круизеры, эндуро</p>
+      </div>
+      <div class="technique-card">
+        <h3>Квадроциклы</h3>
+        <p>Утилитарные и спортивные ATV/UTV</p>
+      </div>
+      <div class="technique-card">
+        <h3>Снегоходы</h3>
+        <p>Горные, туристические и рабочие</p>
+      </div>
+      <div class="technique-card">
+        <h3>Катера и гидроциклы</h3>
+        <p>Водная техника любых габаритов</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lead-generation container">
+    <div class="form-wrapper">
+      <h2>Оставьте заявку на расчет</h2>
+      <p>Укажите, что вам нужно — доставка техники, ремонт или подбор запчасти. Мы свяжемся с вами в течение 15 минут.</p>
+
+      <!-- Направляем запрос на единый маршрут -->
+      <form action="/submit-callback/" method="POST" class="contact-form">
+        {% csrf_token %}
+
+        <!-- Изменено name="name" на name="fullname" для совместимости с views.py -->
+        <input type="text" name="fullname" placeholder="Ваше имя" required />
+        <input type="tel" name="phone" placeholder="Номер телефона" required />
+
+        <select name="service_type">
+          <option value="delivery">Доставка техники</option>
+          <option value="parts">Подбор запчастей</option>
+          <option value="service">Сервисное обслуживание</option>
+        </select>
+
+        <button type="submit" class="button form-button">Получить консультацию</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="workflow container">
+    <h2 class="section-title">Как мы работаем</h2>
+    <div class="workflow-steps">
+      <div class="step">
+        <span class="step-number">01</span>
+        <h3>Заявка</h3>
+        <p>Вы описываете задачу: откуда привезти технику или какую деталь найти.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">02</span>
+        <h3>Расчет</h3>
+        <p>Формируем точную смету и сроки, фиксируем условия.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">03</span>
+        <h3>Исполнение</h3>
+        <p>Осуществляем забор техники или приступаем к сервисному обслуживанию.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">04</span>
+        <h3>Результат</h3>
+        <p>Вы получаете исправную технику в оговоренной точке.</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    const contentTabs = document.querySelectorAll('.content-tab')
+    const contentSections = document.querySelectorAll('.content-section')
+    
+    contentTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const selectedContent = tab.dataset.content
+    
+        contentTabs.forEach((item) => {
+          const isSelected = item === tab
+          item.classList.toggle('is-active', isSelected)
+          item.setAttribute('aria-selected', isSelected)
+        })
+    
+        contentSections.forEach((section) => {
+          const isVisible = section.dataset.section === selectedContent
+          section.hidden = !isVisible
+          section.classList.toggle('is-visible', isVisible)
+        })
+      })
+    })
+  </script>
+{% endblock %}
