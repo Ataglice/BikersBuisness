@@ -15,15 +15,22 @@ def delivery_view(request):
 def conctacts_view(request):
     return render(request, 'main/contacts.html')
 
+import requests
+from django.shortcuts import redirect
+from django.conf import settings
+
 def submit_callback(request):
     if request.method == 'POST':
+        # 1. Проверка Honeypot
+        honeypot = request.POST.get('website_url', '')
+        if honeypot:
+            # Если поле заполнено, это бот. Прерываем логику и отдаем стандартный редирект.
+            return redirect(request.META.get('HTTP_REFERER', '/'))
+
+        # 2. Сбор данных
         fullname = request.POST.get('fullname', 'Не указано')
         phone = request.POST.get('phone', 'Не указано')
-        
         service_type = request.POST.get('service_type')
-
-        bot_token = '8993125417:AAGgsRtPqxBSSMNnaJDtepzld1Ue5m2S5-0' 
-        chat_id = '5133348979'
 
         text = f"🚨 Новая заявка!\n\nИмя: {fullname}\nТелефон: {phone}"
 
@@ -36,16 +43,19 @@ def submit_callback(request):
             service_name = services_map.get(service_type, service_type)
             text += f"\nУслуга: {service_name}"
 
-        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+        # 3. Отправка в Telegram с использованием токенов из настроек
+        url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage"
         data = {
-            'chat_id': chat_id,
+            'chat_id': settings.TELEGRAM_CHAT_ID,
             'text': text
         }
         
         try:
-            requests.post(url, data=data, timeout=5)
+            # Таймаут снижен до 3 секунд. Синхронный requests.post блокирует 
+            # поток Django; длительное ожидание ответа Telegram замедлит работу сайта.
+            requests.post(url, data=data, timeout=3)
         except requests.exceptions.RequestException:
-            pass
+            pass # Логирование ошибки будет уместным вместо pass в production-среде
 
         return redirect(request.META.get('HTTP_REFERER', '/'))
         

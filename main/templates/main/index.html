@@ -5,12 +5,15 @@
   Главная — Visitka
 {% endblock %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'main/css/index.css' %}" />
+{% endblock %}
+
 {% block content %}
   <section class="hero-banner">
     <div class="hero-container container">
       <div class="hero-content">
         <h1 class="hero-title">Премиальный сервис для вашей техники</h1>
-        <p class="hero-subtitle">Надежная доставка и индивидуальный подбор запчастей</p>
         <a href="#about" class="button hero-button">Подробнее</a>
       </div>
     </div>
@@ -50,7 +53,7 @@
         <p class="section-kicker">Свяжитесь с нами</p>
         <h2>Контакты</h2>
         <p>
-          Алматы, пр. Гагарина, 232<br /><a href="tel:+77770208123">+7 777 020 81 23</a><br /><a href="mailto:freeriderkz2005@gmail.com">freeriderkz2005@gmail.com</a>
+          РК, г. Алматы, ул. Жанару, 55а<br /><a href="tel:+77059067742">7 (705) 906-77-42</a><br /><a href="https://www.instagram.com/spmoto_kz/">instagram.com/spmoto_kz</a>
         </p>
       </article>
     </section>
@@ -83,11 +86,15 @@
       <h2>Оставьте заявку на расчет</h2>
       <p>Укажите, что вам нужно — доставка техники, ремонт или подбор запчасти. Мы свяжемся с вами в течение 15 минут.</p>
 
-      <!-- Направляем запрос на единый маршрут -->
       <form action="/submit-callback/" method="POST" class="contact-form">
         {% csrf_token %}
 
-        <!-- Изменено name="name" на name="fullname" для совместимости с views.py -->
+        <!-- Honeypot-поле для защиты от спама -->
+        <div style="display: none;" aria-hidden="true">
+          <label for="website_url">Оставьте это поле пустым</label>
+          <input type="text" name="website_url" id="website_url" tabindex="-1" autocomplete="off" />
+        </div>
+
         <input type="text" name="fullname" placeholder="Ваше имя" required />
         <input type="tel" name="phone" placeholder="Номер телефона" required />
 
