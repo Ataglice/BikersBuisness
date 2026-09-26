@@ -1,8 +1,38 @@
-{% extends 'main/base.html' %} 
+{% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Мотосервис{% endblock %}
+{% block title %}
+  Мотосервис
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'main/css/delivery.css' %}" />
+{% endblock %}
 
 {% block content %}
-<h1>Sashka</h1>
+  <section class="delivery-section container">
+    <div class="delivery-header">
+      <h1>Доставим любую технику</h1>
+      <p>Организуем бережную транспортировку любых видов мото- и экстрим-техники. Гарантируем сохранность на каждом этапе пути.</p>
+    </div>
+
+    <div class="delivery-grid">
+      <div class="technique-card">
+        <h3>Мотоциклы</h3>
+        <p>Дорожные, спортбайки, круизеры, эндуро и тур-эндуро</p>
+      </div>
+      <div class="technique-card">
+        <h3>Квадроциклы и багги</h3>
+        <p>Утилитарные и спортивные ATV, SSV / UTV</p>
+      </div>
+      <div class="technique-card">
+        <h3>Снегоходы</h3>
+        <p>Горные, кроссовые, утилитарные и туристические</p>
+      </div>
+      <div class="technique-card">
+        <h3>Водная техника</h3>
+        <p>Гидроциклы (стоячие, сидячие), лодочные моторы и катера</p>
+      </div>
+    </div>
+  </section>
 {% endblock %}

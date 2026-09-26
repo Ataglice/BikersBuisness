@@ -1,0 +1,61 @@
+/* ==============================
+   СТРАНИЦА ДОСТАВКИ
+   ============================== */
+.delivery-section {
+    padding: 60px 0;
+}
+
+.delivery-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.delivery-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #263238;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.delivery-header p {
+    font-size: 1.1rem;
+    color: #59636a;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.delivery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.technique-card {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #eaeaea;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.technique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.technique-card h3 {
+    font-size: 1.25rem;
+    color: #263238;
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+
+.technique-card p {
+    color: #59636a;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}

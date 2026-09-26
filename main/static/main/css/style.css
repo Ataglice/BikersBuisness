@@ -169,7 +169,7 @@ header.container {
    ГЛАВНЫЙ БАННЕР (HERO)
    ============================== */
 .hero-banner {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/images.jpeg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/BMW_bike.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -213,6 +213,7 @@ header.container {
 .hero-button {
     background-color: #d85c2a;
     color: #ffffff;
+    margin-top: 50px;
 }
 
 .hero-button:hover {

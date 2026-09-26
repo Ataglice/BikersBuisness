@@ -5,11 +5,12 @@
   Мотосервис
 {% endblock %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'main/css/motoservice.css' %}" />
+{% endblock %}
+
 {% block content %}
-  <!-- Блок для фото на всю ширину экрана -->
-  <section class="salon-image-section">
-    <img src="{% static 'main/images/salon.jpg' %}" alt="Наш мотосалон" class="full-width-image" />
-  </section>
+  
 
   <section class="service-prices container">
     <div class="price-list-wrapper">

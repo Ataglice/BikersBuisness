@@ -4,12 +4,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'main/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}" />
     <title>
       {% block title %}
         Visitka
       {% endblock %}
     </title>
+    {% block css %}
+    {% endblock %}
+
   </head>
 
   <body>
@@ -19,7 +22,7 @@
           <div class="logo">
             <a href="/" title="Motorcycle Company">
               <svg class="motorcycle-logo" role="img" aria-label="Motorcycle Company logo" viewBox="0 0 150 56">
-                <image href="{% static 'main/images/vec_1.svg' %}" width="150" height="56" preserveAspectRatio="xMidYMid meet"></image>
+                <image href="{% static 'main/images/logos.jpg' %}" width="150" height="56" preserveAspectRatio="xMidYMid meet"></image>
               </svg>
             </a>
           </div>
@@ -50,7 +53,7 @@
               </a>
             </li>
             <li>
-              <a href="https://go.2gis.com/yUNWr" aria-label="2GIS">
+              <a href="https://go.2gis.com/jJHjy" aria-label="2GIS">
                 <!-- Код SVG 2GIS (Пример геометки) -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
