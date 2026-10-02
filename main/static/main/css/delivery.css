@@ -14,14 +14,14 @@
 .delivery-header h1 {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    color: #263238;
+    color: #ffffff; 
     margin-bottom: 20px;
     letter-spacing: -0.02em;
 }
 
 .delivery-header p {
     font-size: 1.1rem;
-    color: #59636a;
+    color: #e0e0e0; 
     line-height: 1.6;
     margin: 0;
 }
@@ -33,11 +33,11 @@
 }
 
 .technique-card {
-    background-color: #f8f9fa;
+    background-color: rgba(0, 0, 0, 0.6); 
     padding: 40px 20px;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid #eaeaea;
+    border: 1px solid #333; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -48,13 +48,13 @@
 
 .technique-card h3 {
     font-size: 1.25rem;
-    color: #263238;
+    color: #ffffff; 
     margin: 0 0 15px;
     font-weight: 700;
 }
 
 .technique-card p {
-    color: #59636a;
+    color: #d1d1d1; 
     font-size: 0.95rem;
     line-height: 1.5;
     margin: 0;

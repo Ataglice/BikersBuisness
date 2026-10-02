@@ -85,7 +85,7 @@
     border: 0;
     border-left: 3px solid transparent;
     background: transparent;
-    color: #59636a;
+    color: #a0a0a0;
     cursor: pointer;
     text-align: left;
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
@@ -94,7 +94,7 @@
 .content-tab:hover,
 .content-tab.is-active {
     border-left-color: #d85c2a;
-    color: #263238;
+    color: #ffffff;
 }
 
 .content-tab:focus-visible {
@@ -113,7 +113,7 @@
 .content-section h2 {
     max-width: 620px;
     margin: 0 0 20px;
-    color: #263238;
+    color: #ffffff;
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -123,7 +123,7 @@
 .content-section>p:last-child {
     max-width: 580px;
     margin: 0;
-    color: #59636a;
+    color: #e0e0e0;
     font-size: 20px;
     line-height: 1.7;
 }
@@ -138,11 +138,11 @@
 }
 
 .technique-card {
-    background-color: #f8f9fa;
+    background-color: rgba(0, 0, 0, 0.6); 
     padding: 40px 20px;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid #eee;
+    border: 1px solid #333; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -153,12 +153,12 @@
 
 .technique-card h3 {
     font-size: 1.25rem;
-    color: #333;
+    color: #ffffff;
     margin: 15px 0 10px;
 }
 
 .technique-card p {
-    color: #666;
+    color: #d1d1d1;
     font-size: 0.95rem;
     line-height: 1.5;
     margin: 0;
@@ -174,9 +174,9 @@
 }
 
 .step {
-    background: #ffffff;
+    background: rgba(0, 0, 0, 0.6); 
     padding: 30px;
-    border: 1px solid #eaeaea;
+    border: 1px solid #333; 
     border-radius: 8px;
     position: relative;
 }
@@ -191,12 +191,12 @@
 
 .step h3 {
     font-size: 1.2rem;
-    color: #222;
+    color: #ffffff;
     margin: 0 0 10px;
 }
 
 .step p {
-    color: #666;
+    color: #d1d1d1;
     font-size: 0.95rem;
     line-height: 1.5;
     margin: 0;

@@ -14,10 +14,15 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    color: #263238;
+    color: #f5f5f5; /* Изменено с #263238 */
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
     line-height: 1.5;
+
+    background-image: url('../images/back_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 button,
@@ -28,7 +33,7 @@ select {
 }
 
 a {
-    color: #263238;
+    color: #f5f5f5; 
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -59,7 +64,7 @@ section {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 40px;
-    color: #1a1a1a;
+    color: #ffffff; 
 }
 
 .button {
@@ -138,7 +143,7 @@ header.container {
 
 .main-menu a,
 .header-social-media a {
-    color: #333;
+    color: #f5f5f5;
     font-size: 1.05rem;
     font-weight: 800;
     letter-spacing: 0.04em;
@@ -154,7 +159,7 @@ header.container {
 
 .btn-callback {
     background-color: transparent;
-    color: #263238;
+    color: #f5f5f5;
     border: 2px solid #d85c2a;
     padding: 10px 20px;
     font-weight: 700;
