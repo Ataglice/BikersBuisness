@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    color: #f5f5f5; /* Изменено с #263238 */
+    color: #f5f5f5; 
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
     line-height: 1.5;
@@ -39,11 +39,11 @@ a {
 }
 
 a:hover {
-    color: #d85c2a;
+    color: #ffffff;
 }
 
 a:focus-visible {
-    outline: 2px solid #d85c2a;
+    outline: 2px solid #ffffff;
     outline-offset: 3px;
 }
 
@@ -69,17 +69,26 @@ section {
 
 .button {
     display: inline-block;
-    padding: 14px 28px;
+    padding: 12px 28px;
     text-transform: uppercase;
     font-weight: 700;
-    border-radius: 4px;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 50px;
+    border: 2px solid #ffffff;
+    background-color: transparent;
+    color: #ffffff;
     cursor: pointer;
-    border: none;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #ffffff;
+    color: #0f0f0f;
+    border-color: #ffffff;
 }
 
 main {
-    flex: 1; /* Чтобы подвал всегда прижимался к низу */
+    flex: 1; 
 }
 
 /* ==============================
@@ -159,18 +168,19 @@ header.container {
 
 .btn-callback {
     background-color: transparent;
-    color: #f5f5f5;
-    border: 2px solid #d85c2a;
-    padding: 10px 20px;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 10px 24px;
     font-weight: 700;
-    border-radius: 4px;
+    border-radius: 50px; 
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .btn-callback:hover {
-    background-color: #d85c2a;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #0f0f0f;
+    border-color: #ffffff;
 }
 
 /* ==============================
@@ -183,9 +193,10 @@ header.container {
 
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 80px; /* Отступ между горизонтальным списком и контактами */
     padding: 28px 0;
     background: transparent;
 }
@@ -208,6 +219,25 @@ header.container {
     margin-top: 0;
     font-size: 1rem;
     font-weight: 800;
+}
+
+/* Убрано flex: 1, чтобы блок не растягивался на всю ширину и не отталкивал контакты */
+.footer-column--horizontal {
+    min-width: 0;
+}
+
+/* Выстраиваем пункты горизонтально */
+.footer-column--horizontal ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px; /* Отступ между самими ссылками */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column--horizontal li {
+    white-space: nowrap;
 }
 
 /* ==============================
@@ -258,7 +288,7 @@ header.container {
 }
 
 .modal-close:hover {
-    color: #d85c2a;
+    color: #000000;
 }
 
 .modal-content h2 {
@@ -286,9 +316,10 @@ header.container {
     font-family: inherit;
 }
 
+/* Темная рамка вместо оранжевой, так как фон модалки белый */
 .callback-form input:focus {
     outline: none;
-    border-color: #d85c2a;
+    border-color: #263238;
 }
 
 .captcha-box,
@@ -308,25 +339,27 @@ header.container {
 }
 
 .consent-box a {
-    color: #d85c2a;
+    color: #263238;
     text-decoration: underline;
 }
 
 .form-button {
-    background-color: #d85c2a;
-    color: #fff;
-    padding: 18px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 6px;
+    background-color: transparent;
+    color: #263238;
+    border: 2px solid #263238;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;
     margin-top: 10px;
-    border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .form-button:hover {
-    background-color: #b04a20;
+    background-color: #263238; 
+    color: #ffffff;
+    border-color: #263238;
 }
 
 /* ==============================
@@ -350,9 +383,20 @@ header.container {
 
     .footer-container {
         justify-content: flex-start;
+        gap: 32px; /* Уменьшаем общий gap для мобилок */
     }
 
     .section-title {
         font-size: 1.75rem;
+    }
+
+    .footer-column--horizontal {
+        flex: 1 1 100%;
+    }
+
+    .footer-column--horizontal ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
     }
 }

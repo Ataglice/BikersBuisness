@@ -33,14 +33,18 @@
 }
 
 .hero-button {
-    background-color: #d85c2a;
+    background-color: transparent;
     color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
     margin-top: 50px;
+    transition: all 0.25s ease;
 }
 
 .hero-button:hover {
-    background-color: #b04a20;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #0f0f0f;
+    border-color: #ffffff;
 }
 
 /* ==============================
@@ -48,8 +52,9 @@
    ============================== */
 .main-content {
     display: grid;
-    grid-template-columns: 190px minmax(0, 1fr);
-    gap: 32px;
+    grid-template-columns: 220px minmax(0, 1fr);
+    /* Сделал колонку чуть шире для красоты */
+    gap: 40px;
     align-items: start;
     padding-top: 72px;
     padding-bottom: 20px;
@@ -61,45 +66,64 @@
 
 .content-sidebar {
     position: sticky;
-    top: 24px;
+    top: 40px;
+    /* Опустил чуть ниже, чтобы "дышало" */
 }
 
 .sidebar-label,
 .section-kicker {
-    margin: 0 0 16px;
-    color: #d85c2a;
+    margin: 0 0 20px;
+    color: #ffffff;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    opacity: 0.6;
+    /* Сделал заголовок сайдбара менее кричащим */
 }
 
 .content-tabs {
     display: grid;
-    gap: 6px;
+    gap: 8px;
+    /* Увеличил отступ между вкладками */
 }
 
 .content-tab {
     width: 100%;
-    padding: 12px 14px;
+    padding: 14px 18px;
     border: 0;
     border-left: 3px solid transparent;
     background: transparent;
     color: #a0a0a0;
     cursor: pointer;
     text-align: left;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    font-size: 1.05rem;
+    border-radius: 0 8px 8px 0;
+    /* Красивое скругление правых углов */
+    transition: all 0.3s ease;
+    /* Плавная анимация */
 }
 
-.content-tab:hover,
-.content-tab.is-active {
-    border-left-color: #d85c2a;
+/* При наведении: текст белеет, появляется легкий фон, ЛИНИИ НЕТ */
+.content-tab:hover {
     color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    /* Легкая подсветка фона */
+    border-left-color: transparent;
+}
+
+/* Активная вкладка: белая линия, белый текст */
+.content-tab.is-active {
+    color: #ffffff;
+    border-left-color: #ffffff;
+    /* Белая линия только тут */
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.04);
 }
 
 .content-tab:focus-visible {
-    outline: 2px solid #d85c2a;
-    outline-offset: 2px;
+    outline: 2px solid #ffffff;
+    outline-offset: -2px;
 }
 
 .content-panel {
@@ -138,11 +162,11 @@
 }
 
 .technique-card {
-    background-color: rgba(0, 0, 0, 0.6); 
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 40px 20px;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid #333; 
+    border: 1px solid #333;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -174,9 +198,9 @@
 }
 
 .step {
-    background: rgba(0, 0, 0, 0.6); 
+    background: rgba(0, 0, 0, 0.6);
     padding: 30px;
-    border: 1px solid #333; 
+    border: 1px solid #333;
     border-radius: 8px;
     position: relative;
 }
@@ -185,7 +209,7 @@
     display: block;
     font-size: 1.1rem;
     font-weight: 700;
-    color: #d85c2a;
+    color: #ffffff;
     margin-bottom: 15px;
 }
 
@@ -236,6 +260,25 @@
     gap: 15px;
 }
 
+/* Единый стиль прозрачной кнопки-капсулы */
+.contact-form .form-button {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 16px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.contact-form .form-button:hover {
+    background-color: #ffffff;
+    color: #0f0f0f;
+    border-color: #ffffff;
+}
+
 .contact-form input,
 .contact-form select {
     width: 100%;
@@ -247,10 +290,11 @@
     font-size: 1rem;
 }
 
+/* Белая обводка при клике на поле */
 .contact-form input:focus,
 .contact-form select:focus {
     outline: none;
-    border-color: #d85c2a;
+    border-color: #ffffff;
 }
 
 /* ==============================
@@ -274,9 +318,9 @@
 
     .content-tabs {
         display: flex;
-        gap: 8px;
+        gap: 12px;
         overflow-x: auto;
-        padding-bottom: 4px;
+        padding-bottom: 8px;
     }
 
     .content-tab {
@@ -284,12 +328,19 @@
         flex: 0 0 auto;
         border-left: 0;
         border-bottom: 3px solid transparent;
+        border-radius: 8px 8px 0 0;
         white-space: nowrap;
+        padding: 12px 20px;
     }
 
-    .content-tab:hover,
+    .content-tab:hover {
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+
     .content-tab.is-active {
-        border-bottom-color: #d85c2a;
+        border-bottom-color: #ffffff;
         border-left-color: transparent;
     }
 
